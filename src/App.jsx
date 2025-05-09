@@ -51,6 +51,8 @@ function App() {
         shift={shift} 
         privateKey={privateKey}
       />
+
+      
     </div>
   );
 }

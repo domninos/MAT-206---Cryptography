@@ -48,18 +48,19 @@ function decryptShiftCipher(text, shift) {
     return text
         .split("")
         .map((char) => {
+            const charCode = char.charCodeAt(0);
+
             if (char.match(/[a-z]/i)) {
                 // Handle alphabetic characters
-                const charCode = char.charCodeAt(0);
                 const base = charCode >= 65 && charCode <= 90 ? 65 : 97; // Uppercase or lowercase
                 return String.fromCharCode(((charCode - base - shift + 26) % 26) + base);
             } else if (char.match(/[0-9]/)) {
                 // Handle numeric characters
-                const numCode = char.charCodeAt(0);
                 const base = 48; // ASCII code for '0'
-                return String.fromCharCode(((numCode - base - shift + 10) % 10) + base);
+                return String.fromCharCode(((charCode - base - shift + 10) % 10) + base);
             }
-            return char; // Leave non-alphabetic and non-numeric characters unchanged
+            // Handle all other characters (special characters, spaces, etc.)
+            return String.fromCharCode((charCode - shift + 256) % 256); // Reverse the shift within the full ASCII range
         })
         .join("");
 }
