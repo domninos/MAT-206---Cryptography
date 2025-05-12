@@ -21,7 +21,7 @@ function DecryptedBox({ text, encryptedText, decryptedText, setDecryptedText, sh
                 DECRYPTED USING: {sharedCipher}
             </label>
 
-            <div className="messageBox" id="decrypted">
+            <div className="output-box" id="decrypted">
                 <div className="cipherBox">
                     {decryptedText}
                 </div>

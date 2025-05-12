@@ -1,6 +1,6 @@
 function CipherDesc({cipher}) {
     return (
-        <div className='cipherDescription'>
+        <div>
             <h3>Selected Cipher: {cipher}</h3>
 
             <p>

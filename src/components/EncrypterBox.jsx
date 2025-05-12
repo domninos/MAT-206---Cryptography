@@ -12,10 +12,10 @@ function EncrypterBox({ text, encryptedText, setEncryptedText, sharedCipher, pub
     return (
         <>
             <label htmlFor="encrypted" style={{ marginRight: '15px' }}>
-                ENCRYPTED USING: {sharedCipher === "Unselected" ? "NONE" : sharedCipher}
+                ENCRYPTED USING: {sharedCipher}
             </label>
 
-            <div className="messageBox" id="encrypted">
+            <div className="output-box" id="encrypted">
                 {encryptedText}
             </div>
         </>

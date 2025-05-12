@@ -2,9 +2,7 @@
 function CipherSelect({ sharedCipher, setCipher, setEncryptedText, setDecryptedText }) {
   return (
     <>
-      <h3>Select Ciphers</h3>
-
-      <div className='cipherSelect'>
+      <div className='select'>
         <label htmlFor="cipher-select" style={{ marginRight: '15px' }}>Choose cryptography:</label>
         <select 
           id="cipher-select" 

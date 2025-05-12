@@ -19,8 +19,8 @@ function App() {
   const [publicKey, setPublicKey] = useState(17); // e
 
   return (
-    <div>
-      <h1>Cryptography App</h1>
+    <div className="container">
+      <h1>Cryptography App</h1> 
 
       <CipherSelect 
         sharedCipher={sharedCipher} 
