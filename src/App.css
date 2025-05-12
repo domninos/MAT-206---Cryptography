@@ -6,6 +6,11 @@ body {
   padding: 20px;
   width: 640px;
   border-radius: 8px;
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /* Container for the whole content */
@@ -48,7 +53,7 @@ label {
 
 /* Box for output */
 .output-box {
-  padding: 2spx;
+  padding: 3px;
   border: 1px solid #18191a;
   border-radius: 8px;
   background-color: #87a4a267;
@@ -64,7 +69,7 @@ label {
   }
 
   .container {
-    padding: 10px;
+    padding: 5px;
     max-width: 380px;
   }
 
