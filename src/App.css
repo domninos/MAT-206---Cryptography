@@ -66,20 +66,51 @@ label {
 /* Responsive design adjustments */
 @media (max-width: 600px) {
   body {
-    max-width: 400px;
+    max-width: 300px;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
   }
 
   .container {
+    max-width: 300px;
     padding: 5px;
-    max-width: 380px;
   }
 
   select, input[type="text"] {
     font-size: 14px;
     padding: 8px;
-    max-width: 330px;
+    max-width: 285px;
   }
+  
   .output-box {
     font-size: 14px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 380) {
+  select, input[type="text"] {
+    max-width: 300px;
+  }
+
+  .container {
+    max-width: 10px;
+    padding: 5px;
+  }
+  .desc {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 330px) {
+  select, input[type="text"] {
+    max-width: 250px;
+  }
+
+  .desc {
+    max-width: 250px;
   }
 }
