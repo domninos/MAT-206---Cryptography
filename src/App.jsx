@@ -12,7 +12,7 @@ function App() {
   const [encryptedText, setEncryptedText] = useState('');
   const [decryptedText, setDecryptedText] = useState('');
 
-  const [shift, setShift] = useState(5);
+  const [shift, setShift] = useState(3);
 
   // RSA keys
   const [privateKey, setPrivateKey] = useState({ key: 2753, n: 3233 }); // d, n
