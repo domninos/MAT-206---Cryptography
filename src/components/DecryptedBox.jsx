@@ -4,13 +4,15 @@ function DecryptedBox({ text, encryptedText, decryptedText, setDecryptedText, sh
     useEffect(() => {
         if (sharedCipher === "Shift Cipher") {
             if (!isNaN(shift)) {
-                setDecryptedText(decryptShiftCipher(encryptedText, shift));
+                const decrypted = decryptShiftCipher(encryptedText, shift);
+                setDecryptedText(decrypted);
             }
         } else if (sharedCipher === "RSA") {
             const { key, n } = privateKey;
 
             if (key && n) {
-                setDecryptedText(decryptRSA(encryptedText, key, n));
+                const decrypted = decryptRSA(encryptedText, key, n);
+                setDecryptedText(decrypted);
             }
         }
     }, [sharedCipher, shift, privateKey, encryptedText]);
@@ -22,9 +24,7 @@ function DecryptedBox({ text, encryptedText, decryptedText, setDecryptedText, sh
             </label>
 
             <div className="output-box" id="decrypted">
-                <div className="cipherBox">
-                    {decryptedText}
-                </div>
+                {decryptedText}
             </div>
         </>
     );
@@ -53,16 +53,22 @@ function decryptShiftCipher(text, shift) {
             if (char.match(/[a-z]/i)) {
                 // Handle alphabetic characters
                 const base = charCode >= 65 && charCode <= 90 ? 65 : 97; // Uppercase or lowercase
-                return String.fromCharCode(((charCode - base - shift + 26) % 26) + base);
+                const decryptedChar = String.fromCharCode(((charCode - base - shift + 26) % 26) + base);
+                console.log(`a Char: ${char}, DecryptedChar: ${decryptedChar}`);
+                return decryptedChar;
             } else if (char.match(/[0-9]/)) {
                 // Handle numeric characters
                 const base = 48; // ASCII code for '0'
-                return String.fromCharCode(((charCode - base - shift + 10) % 10) + base);
+                const decryptedChar = String.fromCharCode(((charCode - base - shift + 10) % 10) + base);
+                console.log(`b Char: ${char}, DecryptedChar: ${decryptedChar}`);
+                return decryptedChar;
+            } else {
+                // Handle all other characters (special characters, spaces, etc.)
+                const decryptedChar = String.fromCharCode((charCode - shift + 256) % 256);
+                console.log(`Char: ${char}, CharCode: ${charCode} DecryptedChar: ${decryptedChar}`);
+                return decryptedChar;
             }
-            // Handle all other characters (special characters, spaces, etc.)
-            return String.fromCharCode((charCode - shift + 256) % 256); // Reverse the shift within the full ASCII range
         })
         .join("");
 }
-
 export default DecryptedBox;

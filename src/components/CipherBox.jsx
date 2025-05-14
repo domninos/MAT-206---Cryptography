@@ -7,7 +7,6 @@ function CipherBox({text, setText}) {
             <input 
               type="text" 
               id="message" 
-              className="messageBox"
               value={text || ""} 
               onChange={(e) => setText(e.target.value)} 
               placeholder="Type your message here"

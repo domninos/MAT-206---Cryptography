@@ -7,7 +7,6 @@ body {
   width: 640px;
   border-radius: 8px;
   overflow-y: scroll;
-  zoom: 100%;
 }
 
 body::-webkit-scrollbar {
@@ -61,13 +60,14 @@ label {
   font-size: 16px;
   min-height: 50px;
   margin-bottom: 20px;
+  overflow-wrap: break-word;
 }
 
 /* Responsive design adjustments */
 @media (max-width: 600px) {
   body {
     max-width: 300px;
-    padding: 10px;
+    padding: 20px;
   }
 
   h1 {
@@ -75,14 +75,14 @@ label {
   }
 
   .container {
-    max-width: 300px;
-    padding: 5px;
+    max-width: 270px;
+    padding: 50 px;
   }
 
   select, input[type="text"] {
     font-size: 14px;
     padding: 8px;
-    max-width: 285px;
+    max-width: 255px;
   }
   
   .output-box {
@@ -97,11 +97,12 @@ label {
   }
 
   .container {
-    max-width: 10px;
-    padding: 5px;
+    max-width: 100px;
+    padding: 10px;
   }
+
   .desc {
-    max-width: 300px;
+    max-width: 350px;
   }
 }
 

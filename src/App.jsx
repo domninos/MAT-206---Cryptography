@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CipherSelect from './components/CipherSelect';
 import CipherBox from './components/CipherBox';
 import CipherDesc from './components/CipherDesc';
@@ -18,6 +18,20 @@ function App() {
   const [privateKey, setPrivateKey] = useState({ key: 2753, n: 3233 }); // d, n
   const [publicKey, setPublicKey] = useState(17); // e
 
+  let logged = false;
+
+  useEffect(() => {
+    if (!logged) {
+      console.log("RSA KEYS: ");
+      console.log(`**Private Key (d): ${privateKey.key}`);
+      console.log(`**Public Key (e): ${publicKey}`);
+      console.log(`**Modulo (n): ${privateKey.n}`)
+
+      console.log(`Shift Value: ${shift}`);
+      logged = true;
+    }
+  }, []);
+  
   return (
     <div className="container">
       <h1>Cryptography App</h1> 

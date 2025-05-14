@@ -37,8 +37,6 @@ function handleRSA(text, publicKey, modulo) {
 }
 
 function handleShiftCipher(text, shift) {
-    if (!text) text = "";
-
     return text
         .split("")
         .map((char) => {
@@ -54,7 +52,10 @@ function handleShiftCipher(text, shift) {
                 return String.fromCharCode(((charCode - base + shift) % 10) + base);
             }
             // Handle all other characters (special characters, spaces, etc.)
-            return String.fromCharCode((charCode + shift) % 256); // Shift within the full ASCII range
+            
+            const encrypted = String.fromCharCode((charCode + shift) % 256);
+            console.log(`Char: ${char}, CharCode: ${charCode} Encrypted: ${encrypted}`);
+            return encrypted; // Shift within the full ASCII range
         })
         .join(""); 
 }
