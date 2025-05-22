@@ -91,18 +91,48 @@ label {
   }
 }
 
-@media (max-width: 380) {
+@media (max-width: 375px) {
+  body {
+    max-width: 345px;
+    padding: 10px;
+  }
+
   select, input[type="text"] {
     max-width: 300px;
   }
 
   .container {
-    max-width: 100px;
+    max-width: 330px;
     padding: 10px;
   }
 
   .desc {
     max-width: 350px;
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    max-width: 260px;
+    padding: 10px;
+  }
+
+  select, input[type="text"] {
+    max-width: 240px;
+  }
+
+  .container {
+    max-width: 240px;
+    padding: 10px;
+  }
+
+  .output-box {
+    margin-bottom: 10px;
+    max-width: 240px;
+  }
+
+  .desc {
+    max-width: 240px;
   }
 }
 

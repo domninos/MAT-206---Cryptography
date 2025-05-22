@@ -45,6 +45,8 @@ function decryptRSA(text, privateKey, modulo) {
 }
 
 function decryptShiftCipher(text, shift) {
+    if (!text) return "";
+
     return text
         .split("")
         .map((char) => {
@@ -52,7 +54,6 @@ function decryptShiftCipher(text, shift) {
 
             if (char.match(/[a-z]/i)) {
                 // Handle alphabetic characters
-                const base = charCode >= 65 && charCode <= 90 ? 65 : 97; // Uppercase or lowercase
                 const decryptedChar = String.fromCharCode(((charCode - base - shift + 26) % 26) + base);
                 console.log(`a Char: ${char}, DecryptedChar: ${decryptedChar}`);
                 return decryptedChar;
@@ -71,4 +72,5 @@ function decryptShiftCipher(text, shift) {
         })
         .join("");
 }
+
 export default DecryptedBox;
